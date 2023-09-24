@@ -14,6 +14,7 @@ public class SomeClass : SingletonMono<SomeClass>
     }
 }
 //shared instance base on Inheritance
+//everytime a new SomeOtherClass is called awake it will steal the SomeClass Instance
 public class SomeOtherClass : SomeClass
 {
     protected override void OnAnyAwake()
