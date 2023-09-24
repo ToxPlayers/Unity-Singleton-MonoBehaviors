@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class SingletonExample : SingletonMono<SingletonExample>
 { 
-    //example of a singleton that only enables the instance behavior's gameobject
+    //example of a singleton that only enables only the instance behavior's gameobject
     //while keeping none instances alive
-
     protected override void OnInstanceAwake()
     {
         Debug.Log("This is an instance awake");
