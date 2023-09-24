@@ -1,7 +1,31 @@
 # UnitySingletonMono
-Easy to use, Singleton behaviors for unity.
-```
-/// <summary>
+Easy to use, Singleton MonoBehaviors for unity.
+Only the SingletonMono.cs in Singeltons folder is needed.
+The rest are optional.
+SingletonExtensions.cs will automatically set all instances before the first scene loads.
+Works with inheritance.
+Usage:
+```c#
+public class SomeClass : SingletonMono<SomeClass>
+{
+    protected override void OnInstanceAwake()
+    {
+        Debug.Log("This is an instance awake for SomeClass Instances");
+    }
+}
+//shared instance base on Inheritance
+public class SomeOtherClass : SomeClass
+{
+    protected override void OnAnyAwake()
+    {
+        ForceInstance();
+    } 
+}
+``` 
+
+The methods that you can override:
+```c#
+    /// <summary>
     /// Called on Instance or None instance Awake
     /// </summary>
     protected virtual void OnAnyAwake() { }  
