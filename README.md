@@ -1,4 +1,4 @@
-# UnitySingletonMono
+# Unity-Singleton-MonoBehaviors
 Easy to use, Singleton MonoBehaviors for unity.
 Only the SingletonMono.cs in Singeltons folder is needed.
 The rest are optional.
