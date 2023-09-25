@@ -1,5 +1,5 @@
 # Unity-Singleton-MonoBehaviours
-Easy to use, Singleton MonoBehaviours for unity.<br /> 
+Easy to use, Singleton MonoBehaviours pattern for unity.<br /> 
 Only the SingletonMono.cs in Singeltons folder is needed.<br /> 
 SingletonExtensions.cs will automatically set all instances before the first scene loads.<br />
 Works with inheritance.<br />
