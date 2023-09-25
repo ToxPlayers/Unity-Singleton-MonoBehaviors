@@ -1,5 +1,5 @@
 # Unity-Singleton-MonoBehaviors
-Easy to use, Singleton MonoBehaviors for unity.
+Easy to use, Singleton MonoBehaviors for unity.<br /> 
 Only the SingletonMono.cs in Singeltons folder is needed.<br /> 
 SingletonExtensions.cs will automatically set all instances before the first scene loads.<br />
 Works with inheritance.<br />
@@ -22,6 +22,12 @@ public class SomeOtherClass : SomeClass
     } 
 }
 ``` 
+Switch instance using:
+```c#
+SomeClass some = ...;
+SomeClass.Instance = some; //set it to null to remove the instance
+some.ForceInstance(): //forces this to be the instance class, same as Instance = some
+```
 
 The methods that you can override:
 ```c#
