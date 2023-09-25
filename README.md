@@ -3,7 +3,7 @@ Easy to use, Singleton MonoBehaviors for unity.<br />
 Only the SingletonMono.cs in Singeltons folder is needed.<br /> 
 SingletonExtensions.cs will automatically set all instances before the first scene loads.<br />
 Works with inheritance.<br />
-Usage:<br />
+# Usage:
 ```c#
 public class SomeClass : SingletonMono<SomeClass>
 {
