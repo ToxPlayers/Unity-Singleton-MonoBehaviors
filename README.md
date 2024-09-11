@@ -5,22 +5,33 @@ SingletonExtensions.cs will automatically set all instances before the first sce
 Works with inheritance.<br />
 # Usage:
 ```c#
-public class SomeClass : SingletonMono<SomeClass>
+public class ExampleSingleton : SingletonMono<ExampleSingleton>
 {
+    public int Value { get; private set; }
     protected override void OnInstanceSet()
     {
-        Debug.Log("This is an instance for SomeClass Instances");
+        Debug.Log("Instance set for SomeClass Singleton");
     }
 }
 //shared instance base on Inheritance
 //everytime a new SomeOtherClass's awake is called it will steal the SomeClass Instance
-public class SomeOtherClass : SomeClass
+public class ExampleSingletonInherited : SomeClass
 {
-    protected override void OnAnyAwake()
+    void Start()
     {
         ForceInstance();
     } 
 }
+// Use SingletonMono<T>.Instance to get the current instance
+// Will get ExampleSingletonInherited if it's the instance
+public class ClassUsesExampleSingleton : SomeClass
+{
+    void Start()
+    {
+        Debug.Log(ExampleSingleton.Instance.Value);
+    } 
+}
+
 ``` 
 Switch instance using:
 ```c#
