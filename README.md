@@ -7,9 +7,9 @@ Works with inheritance.<br />
 ```c#
 public class SomeClass : SingletonMono<SomeClass>
 {
-    protected override void OnInstanceAwake()
+    protected override void OnInstanceSet()
     {
-        Debug.Log("This is an instance awake for SomeClass Instances");
+        Debug.Log("This is an instance for SomeClass Instances");
     }
 }
 //shared instance base on Inheritance
@@ -30,46 +30,13 @@ some.ForceInstance(): //forces this to be the instance class, same as Instance =
 ```
 
 The methods that you can override:
-```c#
-    /// <summary>
-    /// Called on Instance or None instance Awake
-    /// </summary>
-    protected virtual void OnAnyAwake() { }  
-    /// <summary>
-    /// Called when Instance or None instance destroy
-    /// </summary>
-    protected virtual void OnAnyDestroy() { }
+```c# 
     /// <summary>
     /// alled when this object is set to Instance of <typeparamref name="T"></typeparamref>
     /// </summary>
-	protected virtual void OnInstanceSet() {}
-    /// <summary>
-    /// Called when this Instance object is disabled
-    /// </summary>
-    protected virtual void OnInstanceDisabled() { }
+	protected virtual void OnInstanceSet() {} 
     /// <summary>
     /// Called when this object is no longer the Instance object.
     /// </summary>
-    protected virtual void OnInstanceRemoved() { }
-    /// <summary>
-    /// Called when this instance object is destroyed
-    /// </summary>
-    protected virtual void OnInstanceDestroy() { }
-    /// <summary>
-    /// Called when this instance object is enabled
-    /// </summary>
-    protected virtual void OnInstanceEnabled() { }
-    /// <summary>
-    /// Called when none instance object is enabled
-    /// </summary>
-    protected virtual void OnNoneInstanceEnabled() { }
-    /// <summary>
-    /// Called on instance object awake, or when instance was set and instance awake wasn't called.
-    /// May be called in the editor when <see cref="ForceInstance"/> is called. 
-    /// </summary>
-    protected virtual void OnInstanceAwake() { }
-    /// <summary>
-    /// Called on none instance awake
-    /// </summary>
-    protected virtual void OnNoneInstanceAwake() { }
+    protected virtual void OnInstanceRemoved() { } 
 ```
