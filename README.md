@@ -31,12 +31,12 @@ some.ForceInstance(): //forces this to be the instance class, same as Instance =
 
 The methods that you can override:
 ```c# 
-    /// <summary>
-    /// alled when this object is set to Instance of <typeparamref name="T"></typeparamref>
-    /// </summary>
-	protected virtual void OnInstanceSet() {} 
-    /// <summary>
-    /// Called when this object is no longer the Instance object.
-    /// </summary>
-    protected virtual void OnInstanceRemoved() { } 
+/// <summary>
+/// alled when this object is set to Instance of <typeparamref name="T"></typeparamref>
+/// </summary>
+protected virtual void OnInstanceSet() {} 
+/// <summary>
+/// Called when this object is no longer the Instance object.
+/// </summary>
+protected virtual void OnInstanceRemoved() { } 
 ```
