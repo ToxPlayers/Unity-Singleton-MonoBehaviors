@@ -1,4 +1,5 @@
-using UnityEngine; 
+using UnityEngine;
+using TriInspector;
 
 abstract public class SingletonMono<T> : MonoBehaviour  where T : MonoBehaviour
 {
@@ -47,7 +48,11 @@ abstract public class SingletonMono<T> : MonoBehaviour  where T : MonoBehaviour
         return inst;
     }
      
-    public bool IsInstance { get => _instance && this == _instance; } 
+    public bool IsInstance { get => _instance && this == _instance; }
+#if UNITY_EDITOR
+    string EDITOR_BTN_NAME => IsInstance ? "Instance Class" : "Force Instance";
+    [PropertyOrder(100), DisableIf(nameof(IsInstance)), Button("$" + nameof(EDITOR_BTN_NAME))]
+#endif
     public void ForceInstance() => Instance = this as T;   
 
 	protected virtual void Awake()
@@ -63,18 +68,12 @@ abstract public class SingletonMono<T> : MonoBehaviour  where T : MonoBehaviour
 #if UNITY_EDITOR
         }
 #endif 
-    }
-	protected virtual void OnEnable()
-    { 
-        T  thisT = this as T; 
-        if(!HasInstance)
-            Instance = thisT; 
-    }
+    } 
     protected virtual void OnDestroy()
 	{
 		if (_instance == this)
             Instance = null;
-	}
+	} 
 
     /// <summary>
     /// Called when this object is set to Instance of <typeparamref name="T"></typeparamref>
